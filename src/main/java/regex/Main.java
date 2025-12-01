@@ -56,6 +56,9 @@ public class Main {
      * @return a list containing the email addresses in the string.
      */
     public static List<String> extractEmails(String str) {
+        if (str == null) {
+            return new ArrayList<>();
+        }
         final Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@(mail\\.)?utoronto\\.ca");
         final Matcher matcher = pattern.matcher(str);
         final List<String> result = new ArrayList<>();
@@ -64,6 +67,7 @@ public class Main {
         }
         return result;
     }
+
 
     // Method 3 for checking if a string conforms to a regex: using String.matches
 
@@ -77,6 +81,9 @@ public class Main {
      * @return whether str contains the same capital letter twice.
      */
     public static boolean checkForDoubles(String str) {
+        if (str == null) {
+            return false;
+        }
         return str.matches(".*([A-Z]).*\\1.*");
     }
 }
